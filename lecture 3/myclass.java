@@ -1,4 +1,4 @@
-package David Najdovski 5446;
+package Myclass;
 
 public class myNumber {
 	private int num;
