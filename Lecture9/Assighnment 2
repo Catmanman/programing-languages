@@ -1,0 +1,42 @@
+public class Test {
+    private String s;
+
+    public Test() {
+        this.s = "Programming languages";
+    }
+
+    public void method1() {
+        System.out.println(s);
+    }
+
+    public void method2(int n) {
+        System.out.println(n);
+    }
+
+    private void method3() {
+        System.out.println("Private method is invoked");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        Test test = new Test();
+        System.out.println(test.getClass().getName());
+        System.out.println(test.getClass().getConstructors()[0].getName());
+        System.out.println(test.getClass().getConstructors()[0].getName());
+        for (java.lang.reflect.Method method : test.getClass().getDeclaredMethods()) {
+            System.out.println(method.getName());
+        }
+
+        java.lang.reflect.Field field = Test.class.getDeclaredField("s");
+        field.setAccessible(true);
+        System.out.println(field.get(test));
+
+        field.set(test, "New value of s");
+        System.out.println(field.get(test));
+
+        java.lang.reflect.Method method3 = Test.class.getDeclaredMethod("method3");
+        method3.setAccessible(true);
+        method3.invoke(test);
+    }
+}
