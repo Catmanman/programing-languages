@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class TextSize {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String text;
+
+        do {
+            System.out.println("Input a line, input END to terminate");
+            text = scanner.nextLine();
+
+            if (!text.equals("END")) {
+                System.out.println("The Text size is: " + text.length());
+            }
+        } while (!text.equals("END"));
+
+        scanner.close();
+    }
+}
